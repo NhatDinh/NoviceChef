@@ -10,7 +10,8 @@ const divStyle = {
 };
 
 const Footer = props => (
-	<div className="row footer-container">
+	<div className="footer-container">
+	<div className="row">
 		<div className="col-xl">
 				<h2><strong>Novice Chef:</strong></h2>
 				<p style={divStyle}>
@@ -23,14 +24,13 @@ const Footer = props => (
 					build Novice Chef, a To-do/ Ingredients app.
 				</p>
 			</div>
-			<div className="col-sm">{" "}</div>
 			<div className="col-md tribute" style={divStyle} >
 			<h5> Powered by <i className="fas fa-tape"> Food2Fork API </i></h5>
-			<h5>Stack: <i className="fas fa-plug"> ReactJS,  ExpressJS,  MongoDB,  NodeJS </i></h5>
+			<h5>Stack: <i className="fas fa-plug"> ReactJS,  ExpressJS,  MongoDB, NodeJS </i></h5>
 			<h5> Animation by <i className="fab fa-dribbble-square"> Dribble </i></h5>
-			
+		
 			</div>
-
+			</div>
 		</div>
 );
 
