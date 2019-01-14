@@ -1,0 +1,81 @@
+/* DIV CONTAINER */
+/* CSS TRICKS FOR FULL PAGE BACKGROUND: https://css-tricks.com/perfect-full-page-background-image/*/
+.form-container { 
+  background: url(./static/chef-4.gif) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  padding-top: 10vh;
+}
+
+
+/* INPUT CUSTOM */
+.custom-input {
+  background: transparent;
+  transition: width 1s; 
+  border: solid 5px #ffffff;
+  margin-right: 10px;
+  letter-spacing: 2px;
+  width: 40%;
+  padding: 0.4rem;
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+  font-family: 'Verdana';
+}
+
+.custom-input:hover {
+  background: transparent;
+  transition: width 1s; 
+  border: solid 8px #ffffff;
+  margin-right: 10px;
+  letter-spacing: 2px;
+  width: 60%;
+  padding: 0.4rem;
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+  font-family: 'Verdana';
+
+}
+
+.custom-input::placeholder {
+  font-weight: 900;
+  font-size: 20px;
+  color: white;
+  font-family: 'Verdana';
+}
+
+/* SEARCH BUTTON CUSTOM */
+.btn-hover {
+    width: 200px;
+    font-size: 25px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover.color-1 {
+    background-image: linear-gradient(to right, #c96365, #ff4da6, #ff4da6, #4da6ff);
+}

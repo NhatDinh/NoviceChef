@@ -1,0 +1,12 @@
+/* The element to apply the animation to */
+.banner-container {
+  width: 100%;
+  height: 30%;
+  background-image: linear-gradient(to right, #614385 0%, #516395 51%, #614385 100%);
+  font-weight: 400;
+  padding-left: 6rem;
+  font-size: 20px;
+  color: white;
+  font-family: 'Verdana';
+  text-align: left;
+}

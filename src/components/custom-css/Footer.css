@@ -1,0 +1,22 @@
+.footer-container {
+  display: block;
+  padding-top: 20px;
+  height: 60px;
+  width: 100%;
+  background-color: #323232;
+  background-image: #323232;
+  height: 300px;
+  padding-left: 5rem;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  font-size: 20px;
+  color: white;
+  font-family: 'Verdana';
+  text-align: Left;
+}
+
+
+.tribute{
+  padding-top: 10%;
+  padding-left: -5%;
+}
