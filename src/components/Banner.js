@@ -6,19 +6,19 @@ const Banner = props => (
 	<div className="banner-container">
 		<div className="row">
 			<div className="col-xl">
-				 Made by Nhat <i className="fas fa-code" /> 
+				<h2> <i className="fas fa-code" /> by Nhat  </h2>
 			</div>
 			<div className="col-xl" />
 			<div className="col-sm">
 			</div>
 			<div className="col-sm">
-				<i className="fab fa-github-square"> Github</i>
+				<i className="fab fa-github-square"></i> Github
 			</div>
 			<div className="col-sm">
-				<i className="fab fa-linkedin"> LinkedIn</i>
+				<i className="fab fa-linkedin"> </i> LinkedIn
 			</div>
 			<div className="col-sm">
-				<i className="fab fa-twitter-square"> Twitter</i>
+				<i className="fab fa-twitter-square"> </i> Twitter 
 			</div>
 		</div>
 	</div>

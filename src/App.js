@@ -1,14 +1,20 @@
 import React, { Component } from "react";
+import axios from 'axios';
+
 //components
 import Form from "./components/Form";
 import Footer from "./components/Footer";
+import Recipes from "./components/Recipes";
+
 import Banner from "./components/Banner";
+
+
 
 import "./App.css";
 
-const API_KEY = "TOP-SECRET-STUFF";
-
+const API_KEY = "8f547e134d4f4ff24b8f4ef8261576e3";
 class App extends Component {
+
    state = {
     recipes: []
   }
@@ -16,13 +22,13 @@ class App extends Component {
   getRecipe = async (e) => {
     e.preventDefault();
     let recipeName = e.target.elements.recipeName.value;
-    this.state.recipes.push(recipeName);
-    console.log(this.state.recipes)
-    //const api_call = await fetch(`https://afternoon-cliffs-70683.herokuapp.com//http://food2fork.com/api/search?key=${API_KEY}&q=${recipeName}&count=10`);
-    //const data = await api_call.json();
-    //console.log(data);
-    //this.setState({ recipes: data.recipes });
-    //console.log(this.state.recipes);
+    let api_call = `https://www.food2fork.com/api/search?&key=${API_KEY}&q=${recipeName}&count=3`;
+    let response = await axios(api_call);
+    let recipes_list = response.data.recipes;
+    console.log(recipes_list,typeof(recipes_list));
+    this.setState({recipes:recipes_list});
+    console.log("this.state", this.state.recipes ,typeof(this.state.recipes));
+
   };
 
   render() {
@@ -33,6 +39,7 @@ class App extends Component {
         </header>
         <Banner/>
         <Form getRecipe={this.getRecipe} />
+        <Recipes recipes_list={this.state.recipes}/>
         <Footer />
       </div>
     );
