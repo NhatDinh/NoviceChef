@@ -1,7 +1,8 @@
 import React from "react";
+import "./custom-css/Recipes.css";
 
 const Recipes = props => (
-  <div className="container">
+  <div className="recipes-container">
     <div className="row">
       {props.recipes_list.map(recipe => {
         return (

@@ -22,13 +22,12 @@ class App extends Component {
   getRecipe = async (e) => {
     e.preventDefault();
     let recipeName = e.target.elements.recipeName.value;
-    let api_call = `https://www.food2fork.com/api/search?&key=${API_KEY}&q=${recipeName}&count=3`;
+    let api_call = `https://www.food2fork.com/api/search?&key=${API_KEY}&q=${recipeName}&count=6`;
     let response = await axios(api_call);
     let recipes_list = response.data.recipes;
     console.log(recipes_list,typeof(recipes_list));
     this.setState({recipes:recipes_list});
     console.log("this.state", this.state.recipes ,typeof(this.state.recipes));
-
   };
 
   render() {
