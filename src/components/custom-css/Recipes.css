@@ -1,3 +1,23 @@
-.recipes-container{
-	  background-image: linear-gradient(to right, #fc00ff 0%, #00dbde 51%, #fc00ff 100%);
-	}
+.recipes-container {
+	background-image: linear-gradient(
+		to right,
+		#fc00ff 0%,
+		#00dbde 51%,
+		#fc00ff 100%
+	);
+}
+
+.recipe_buttons:hover {
+	border: solid 6px #e74c3c;
+	padding: 0.4rem 0.6rem;
+	margin: 0 0.2rem;
+	border-radius: 2px;
+	font-size: 1rem;
+	text-transform: uppercase;
+	font-weight: 900;
+	margin-left: 1rem;
+	moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
