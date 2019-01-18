@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./custom-css/Recipes.css";
 
 const Recipes = props => (
@@ -7,7 +9,7 @@ const Recipes = props => (
       {props.recipes_list.map(recipe => {
         return (
           <div
-            key={recipe.title}//index must have a key value being a react child component
+            key={recipe.recipe_id} //index must have a key value being a react child component
             className="col-md-4"
             style={{ marginBottom: "2rem" }}
           >
@@ -27,7 +29,15 @@ const Recipes = props => (
                   Publisher: <span>{recipe.publisher}</span>
                 </p>
               </div>
-              <button className="recipe_buttons">Recipe checklist</button>
+              <button className="recipe_buttons">
+                <Link to={{ 
+                  pathname: `/recipe/${recipe.recipe_id}`,
+                  state: recipe.recipe_id, 
+                  recipe_obj: recipe
+                 }}>
+                  Recipe checklist
+                </Link>
+              </button>
             </div>
           </div>
         );
