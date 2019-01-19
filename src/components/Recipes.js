@@ -31,10 +31,9 @@ const Recipes = props => (
               </div>
               <button className="recipe_buttons">
                 <Link to={{ 
-                  pathname: `/recipe/${recipe.recipe_id}`,
-                  state: recipe.recipe_id, 
-                  recipe_obj: recipe
-                 }}>
+                  pathname: `/recipes/#${recipe.recipe_id}`,
+                  recipeID:recipe.recipe_id
+                }}>
                   Recipe checklist
                 </Link>
               </button>
