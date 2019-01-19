@@ -2,6 +2,10 @@ import React from "react";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
+import Banner from "./Banner";
+import "./custom-css/Footer.css";
 
 const API_KEY = "8f547e134d4f4ff24b8f4ef8261576e3";
 class Recipe extends React.Component {
@@ -26,7 +30,9 @@ class Recipe extends React.Component {
     console.log(this.props);
     const recipe = this.state.activeRecipe;
     return (
-      <div className="container">
+      <div>
+      <Header />
+      <Banner />
         {this.state.activeRecipe.length !== 0 && (
           <div className="active-recipe">
             <img
@@ -49,6 +55,7 @@ class Recipe extends React.Component {
             </button>
           </div>
         )}
+        <Footer />
       </div>
     );
   }

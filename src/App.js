@@ -6,8 +6,8 @@ import Form from "./components/Form";
 import Footer from "./components/Footer";
 import Recipes from "./components/Recipes";
 
+import Header from "./components/Header";
 import Banner from "./components/Banner";
-
 
 
 import "./App.css";
@@ -32,9 +32,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Novice Chef <i className="fas fa-fire"></i></h1>
-        </header>
+        <Header />
         <Banner/>
         <Form getRecipe={this.getRecipe} />
         <Recipes recipes_list={this.state.recipes}/>
