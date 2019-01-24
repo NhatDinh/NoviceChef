@@ -7,7 +7,7 @@ import Footer from "./Footer";
 import Banner from "./Banner";
 import "./custom-css/Footer.css";
 
-const API_KEY = "TOP-SECRET";
+const API_KEY = "8f547e134d4f4ff24b8f4ef8261576e3";
 class Recipe extends React.Component {
   state = {
     activeRecipe: []

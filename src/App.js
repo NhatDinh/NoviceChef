@@ -12,7 +12,7 @@ import Banner from "./components/Banner";
 
 import "./App.css";
 
-const API_KEY = "TOP-SECRET";
+const API_KEY = "8f547e134d4f4ff24b8f4ef8261576e3";
 class App extends Component {
 
    state = {
@@ -22,7 +22,7 @@ class App extends Component {
   getRecipe = async (e) => {
     e.preventDefault();
     let recipeName = e.target.elements.recipeName.value;
-    let api_call = `https://www.food2fork.com/api/search?&key=${API_KEY}&q=${recipeName}&count=3`;
+    let api_call = `https://www.food2fork.com/api/search?&key=${API_KEY}&q=${recipeName}&count=10`;
     let response = await axios(api_call);
     let recipes_list = response.data.recipes;
     this.setState({recipes:recipes_list});
