@@ -1,12 +1,42 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
+import Footer from "./Footer";
+import Banner from "./Banner";
+import Header from "./Header";
 
 import "./custom-css/Recipes.css";
 
-const Recipes = props => (
-  <div className="recipes-container">
+const API_KEY = "8f547e134d4f4ff24b8f4ef8261576e3";
+class Recipes extends Component {
+  state = {
+    recipes_list: []
+  };
+  
+  componentDidMount = () => {
+    let recipeName = this.props.location.recipeTitle;
+    let call = `https://www.food2fork.com/api/search?&key=${API_KEY}&q=${recipeName}&count=9`;
+    axios
+      .get(call)
+      .then((response) => {
+        console.log("response", response);
+        this.setState({recipes_list:response.data.recipes});
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  render() {
+    console.log(this.props);
+    return (
+      <div>
+      <Header />
+      <Banner />
+      <div className="recipes-container">
     <div className="row">
-      {props.recipes_list.map(recipe => {
+      {this.state.recipes_list.map(recipe => {
         return (
           <div
             key={recipe.recipe_id} //index must have a key value being a react child component
@@ -43,6 +73,10 @@ const Recipes = props => (
       })}
     </div>
   </div>
-);
+  <Footer />
+  </div>
+    );
+  }
+};
 
 export default Recipes;
