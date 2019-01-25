@@ -10,20 +10,20 @@ import Banner from "./components/Banner";
 import "./App.css";
 
 class App extends Component {
-  getRecipe = async (e) => {
+  getRecipe = async e => {
     e.preventDefault();
     let recipeName = e.target.elements.recipeName.value;
     this.props.history.push({
-                  pathname: `/recipes/?search=${recipeName}`,
-                  recipeTitle:recipeName
-                })
+      pathname: `/recipes/?search=${recipeName}`,
+      recipeTitle: recipeName
+    });
   };
 
   render() {
     return (
       <div className="App">
         <Header />
-        <Banner/>
+        <Banner />
         <Form getRecipe={this.getRecipe} />
         <Footer />
       </div>

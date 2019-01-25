@@ -134,21 +134,22 @@ input:-webkit-autofill {
 }
 
 .active-recipe__img {
-  height: 400px;
-  width: 500px;
+  height: 50%;
+  width: 100%;
 }
 
 .active-recipe__title {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 1rem 0;
+  text-align: center;
 }
 
 .active-recipe__publisher,
 .active-recipe__website {
   text-transform: uppercase;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-top: 2rem;
 }
 
 .active-recipe__publisher span {

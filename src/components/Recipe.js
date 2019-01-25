@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Banner from "./Banner";
-import "./custom-css/Footer.css";
+
+import "./custom-css/Recipe.css";
 
 const API_KEY = "8f547e134d4f4ff24b8f4ef8261576e3";
 const APP_ID = "43d1b03e";
@@ -51,7 +52,7 @@ class Recipe extends React.Component {
       <div>
         <Header />
         <Banner />
-        <div className="row active-recipe">
+        <div className="row recipe-container">
           <div className="col">
             {recipe !== 0 && (
               <div className="active-recipe">
@@ -74,24 +75,31 @@ class Recipe extends React.Component {
             )}
           </div>
           <div className="col">
-            <div className="container">
+            <div className="checklist-container">
+    
               {recipe !== 0 && (
                 <h2 className="active-recipe__title">{recipe.title}</h2>
               )}
-              <ul>
-                {ingredients.map((ingredient, index) => {
-                  return (
-                    <li key={index}>
-                    <form >
-                      <label htmlFor={index}>
-                        <strong>{ingredient.text} </strong> ( {Math.round((ingredient.weight / 453.592) * 100) / 100} ounces )
-                        <input type="checkbox" id={index}/>
-                      </label>
-                    </form>
-                    </li>
-                  );
-                })}
-              </ul>
+              {/*
+              <h3 className="done" aria-hidden="true">
+                Checked:
+              </h3>
+              <h3 className="undone" aria-hidden="true">
+                Need more:
+              </h3> */}
+              {ingredients.map((ingredient, index) => {
+                return (
+                  <form key={index}>
+                    <input className="checkboxes" type="checkbox" id={index} />
+                    <label className="custom-label" htmlFor={index}>
+                      <strong>{ingredient.text.replace("*", "")} </strong> ({" "}
+                      {Math.round((ingredient.weight / 453.592) * 100) / 100}{" "}
+                      ounces )
+                    </label>
+                    <hr />
+                  </form>
+                );
+              })}
             </div>
           </div>
         </div>

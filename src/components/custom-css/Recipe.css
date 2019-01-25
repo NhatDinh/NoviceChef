@@ -1,3 +1,105 @@
-.recipe-container{
-  padding-top: 56.25%;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.recipe-container {
+  margin: 2px;
+  color: #435757;
+  background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%);
+  font: 500 1.2em/1.2 "Roboto", sans-serif;
+  width: 100%;
+  text-align: center;
+}
+
+.checklist-container {
+  text-align: left;
+  max-width: 100%;
+  margin: 5px;
+  border-top: 5px solid #435757;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  user-select: none;
+  width: 100%;
+}
+
+/* hide inputs offscreen, but at the same vertical positions as the correpsonding labels, so that tabbing scrolls the viewport as expected */
+
+.checkboxes {
+  display: block;
+  height: 50px;
+  margin: 0 0 -53px -9999px;
+  order: 4;
+  outline: none;
+  color: #ccc;
+}
+
+.custom-label {
+  display: block;
+  position: relative;
+  padding: 15px 0 15px 45px;
+  border-top: 1px dashed #fff;
+  order: 4;
+  cursor: pointer;
+  animation: undone 0.5s;
+}
+
+.custom-label:hover,
+input:focus + label {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.checkboxes:checked + label {
+  animation: done 0.5s;
+  font-weight: 900;
+  color: white;
+}
+
+@keyframes done {
+  0% {
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+@keyframes undone {
+  0% {
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-20px);
+  }
+  50% {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+h3 {
+  position: relative;
+  margin: 0;
+  padding: 10px 0;
+  font-size: 1.2em;
+}
+
+h3::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: -20px;
+  width: 5px;
+  background-color: #435757;
+}
+
+h3::after {
+  display: block;
+  float: right;
+  font-weight: normal;
 }
