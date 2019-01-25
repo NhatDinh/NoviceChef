@@ -53,7 +53,7 @@ class Recipe extends React.Component {
         <Header />
         <Banner />
         <div className="row recipe-container">
-          <div className="col">
+          <div className="col-xl">
             {recipe !== 0 && (
               <div className="active-recipe">
                 <img
@@ -66,17 +66,10 @@ class Recipe extends React.Component {
           </div>
           <div className="col">
             <div className="checklist-container">
-    
               {recipe !== 0 && (
                 <h2 className="active-recipe__title">{recipe.title}</h2>
               )}
-              {/*
-              <h3 className="done" aria-hidden="true">
-                Checked:
-              </h3>
-              <h3 className="undone" aria-hidden="true">
-                Need more:
-              </h3> */}
+
               {ingredients.map((ingredient, index) => {
                 return (
                   <form key={index}>
