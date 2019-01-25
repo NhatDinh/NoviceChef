@@ -79,14 +79,16 @@ class Recipe extends React.Component {
                 <h2 className="active-recipe__title">{recipe.title}</h2>
               )}
               <ul>
-                {this.state.ingredients.map((ingredient, index) => {
+                {ingredients.map((ingredient, index) => {
                   return (
-                    <form  key={index}>
+                    <li key={index}>
+                    <form >
                       <label htmlFor={index}>
-                        {ingredient.text} ( {ingredient.weight} )
+                        <strong>{ingredient.text} </strong> ( {Math.round((ingredient.weight / 453.592) * 100) / 100} ounces )
                         <input type="checkbox" id={index}/>
                       </label>
                     </form>
+                    </li>
                   );
                 })}
               </ul>
