@@ -53,8 +53,9 @@ input:focus + label {
 
 .checkboxes:checked + label {
   animation: done 0.5s;
+  font-weight: 900;
+  color: white; 
   text-decoration: line-through;
-  color: white;
   }
 
 @keyframes done {
@@ -81,3 +82,26 @@ input:focus + label {
   }
 }
 
+h3 {
+  position: relative;
+  margin: 0;
+  padding: 10px 0;
+  font-size: 1.2em;
+}
+
+h3::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: -20px;
+  width: 5px;
+  background-color: #435757;
+}
+
+h3::after {
+  display: block;
+  float: right;
+  font-weight: normal;
+}
