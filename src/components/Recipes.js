@@ -16,7 +16,7 @@ class Recipes extends Component {
 
   componentDidMount = () => {
     let recipeName = this.props.location.recipeTitle;
-    let call = `https://www.food2fork.com/api/search?&key=${API_KEY}&q=${recipeName}&count=1`;
+    let call = `https://www.food2fork.com/api/search?&key=${API_KEY}&q=${recipeName}&count=9`;
     axios
       .get(call)
       .then(response => {
