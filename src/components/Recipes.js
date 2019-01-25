@@ -10,28 +10,28 @@ import "./custom-css/Recipes.css";
 
 const API_KEY = "8f547e134d4f4ff24b8f4ef8261576e3";
 class Recipes extends Component {
-  state = {
-    recipes_list: []
-  };
-  
-  componentDidMount = () => {
-    let recipeName = this.props.location.recipeTitle;
-    let call = `https://www.food2fork.com/api/search?&key=${API_KEY}&q=${recipeName}&count=9`;
-    axios
-      .get(call)
-      .then((response) => {
-        console.log("response", response);
-        this.setState({recipes_list:response.data.recipes});
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+    state = {
+        recipes_list: []
+    };
 
-  render() {
-    console.log(this.props);
-    return (
-      <div>
+    componentDidMount = () => {
+        let recipeName = this.props.location.recipeTitle;
+        let call = `https://www.food2fork.com/api/search?&key=${API_KEY}&q=${recipeName}&count=3`;
+        axios
+            .get(call)
+            .then((response) => {
+                console.log("response", response);
+                this.setState({ recipes_list: response.data.recipes });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
+    render() {
+        console.log(this.props);
+        return (
+            <div>
       <Header />
       <Banner />
       <div className="recipes-container">
@@ -62,9 +62,10 @@ class Recipes extends Component {
               <button className="recipe_buttons">
                 <Link to={{ 
                   pathname: `/recipes/#${recipe.recipe_id}`,
-                  recipeID:recipe.recipe_id
+                  recipeID:recipe.recipe_id,
+                  recipeTitle:recipe.title
                 }}>
-                  Recipe checklist
+                  Ingredients Checklist
                 </Link>
               </button>
             </div>
@@ -75,8 +76,8 @@ class Recipes extends Component {
   </div>
   <Footer />
   </div>
-    );
-  }
+        );
+    }
 };
 
 export default Recipes;

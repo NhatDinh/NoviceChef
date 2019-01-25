@@ -128,12 +128,14 @@ input:-webkit-autofill {
 /******** RECIPE.js ********/
 
 .active-recipe {
+  padding-top: 1rem;
   margin: 0 auto;
-  width: 60%;
+  width: 100%;
 }
 
 .active-recipe__img {
-  height: 500px !important;
+  height: 400px;
+  width: 500px;
 }
 
 .active-recipe__title {
