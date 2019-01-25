@@ -24,7 +24,7 @@ const Footer = props => (
 					build Novice Chef, an Ingredients Search and Checklist app.
 				</p>
 			</div>
-			<div className="col-md tribute" style={divStyle} >
+			<div className="col tribute" style={divStyle} >
 			<h5> Powered by <i className="fas fa-tape"> Food2Fork API and Edamam API </i></h5>
 			<h5> Stack: <i className="fas fa-plug"> ReactJS, NodeJS, a dash of Bootstrap and lots of CSS tricks </i></h5>
 			</div>
