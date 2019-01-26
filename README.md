@@ -1,5 +1,8 @@
 ## Live on: https://novice-chef.herokuapp.com/
-## Status: Continue Development
+
+## Demo:
+![](https://media.giphy.com/media/5aWC8NOI3Zx6c0YXHB/giphy.gif)
+
 
 ### Relevant terms: 
 * Backend: Node.JS, Express
