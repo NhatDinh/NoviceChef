@@ -10,15 +10,15 @@ const Banner = props => (
 			<a href="https://twitter.com/nhat_ldinh">
 				<i className="fab fa-twitter" />
 			</a>
-			{"    "} <i class="fas fa-arrows-alt-h" />
+			{"    "} <i className="fas fa-arrows-alt-h" />
 			{"     "}
 			<a href="https://www.linkedin.com/in/nhat-dinh/">
 				<i className="fab fa-linkedin-in" />
 			</a>
-			{"    "} <i class="fas fa-arrows-alt-h" />
+			{"    "} <i className="fas fa-arrows-alt-h" />
 			{"     "}
 			<a href="https://github.com/NhatDinh">
-				<i class="fab fa-github-alt" />
+				<i className="fab fa-github-alt" />
 			</a>
 		</h3>
 	</div>
