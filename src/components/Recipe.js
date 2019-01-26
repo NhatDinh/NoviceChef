@@ -8,9 +8,9 @@ import Banner from "./Banner";
 
 import "./custom-css/Recipe.css";
 
-const API_KEY = "8f547e134d4f4ff24b8f4ef8261576e3";
-const APP_ID = "43d1b03e";
-const APP_KEY = "eab4de56a7d88b4443c6ea2176e85c5c";
+const API_KEY = "#";
+const APP_ID = "#";
+const APP_KEY = "#";
 class Recipe extends React.Component {
   state = {
     activeRecipe: [],
