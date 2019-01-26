@@ -12,10 +12,10 @@ import "./App.css";
 class App extends Component {
   getRecipe = async e => {
     e.preventDefault();
-    let recipeName = e.target.elements.recipeName.value;
+    let recipeKeyword = e.target.elements.recipeName.value;
     this.props.history.push({
-      pathname: `/recipes/?search=${recipeName}`,
-      recipeTitle: recipeName
+      pathname: `/recipes/?search=${recipeKeyword}`,
+      recipeKeyword: recipeKeyword
     });
   };
 

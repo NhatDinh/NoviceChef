@@ -45,7 +45,7 @@ class Recipe extends React.Component {
   };
 
   render() {
-    console.log(this.props);
+    console.log("Rendered recipe", this.props);
     const recipe = this.state.activeRecipe;
     const ingredients = this.state.ingredients;
     return (
@@ -63,6 +63,18 @@ class Recipe extends React.Component {
                 />
               </div>
             )}
+            <button className="active-recipe__button">
+              <Link
+                to={{
+                  pathname: `/recipes/?search=${
+                    this.props.location.recipeKeyword
+                  }"`,
+                  recipeKeyword: `${this.props.location.recipeKeyword}`
+                }}
+              >
+                Back to {} recipes
+              </Link>
+            </button>
           </div>
           <div className="col">
             <div className="checklist-container">

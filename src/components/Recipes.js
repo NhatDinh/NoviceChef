@@ -15,21 +15,39 @@ class Recipes extends Component {
   };
 
   componentDidMount = () => {
-    let recipeName = this.props.location.recipeTitle;
-    let call = `https://www.food2fork.com/api/search?&key=${API_KEY}&q=${recipeName}&count=9`;
-    axios
-      .get(call)
-      .then(response => {
-        console.log("response", response);
-        this.setState({ recipes_list: response.data.recipes });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    const json = sessionStorage.getItem("cached_recipes");
+    const recipes = JSON.parse(json);
+    console.log("RECIPES DID MOUNT PROPS", this.props);
+    console.log("DID MOUNT local cahed recipes:", recipes);
+    if (recipes !== null) {
+      this.setState({ recipes_list: recipes });
+    } else {
+      let recipeKeyword = this.props.location.recipeKeyword;
+      console.log("recipeKeyword", recipeKeyword);
+      let call = `https://www.food2fork.com/api/search?&key=${API_KEY}&q=${recipeKeyword}&count=9`;
+      axios
+        .get(call)
+        .then(response => {
+          console.log("RECIPES response", response);
+          this.setState({ recipes_list: response.data.recipes });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  };
+
+  componentDidUpdate = () => {
+    const recipes = JSON.stringify(this.state.recipes_list);
+    sessionStorage.setItem("cached_recipes", recipes);
+    console.log(
+      "cached_recipes ON UPDATE",
+      sessionStorage.getItem("cached_recipes")
+    );
+    console.log("componentDidUpdate", this.props);
   };
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <Header />
@@ -64,7 +82,8 @@ class Recipes extends Component {
                         to={{
                           pathname: `/recipes/#${recipe.recipe_id}`,
                           recipeID: recipe.recipe_id,
-                          recipeTitle: recipe.title
+                          recipeTitle: recipe.title, 
+                          recipeKeyword: this.props.location.recipeKeyword
                         }}
                       >
                         Ingredients Checklist
