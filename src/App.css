@@ -168,15 +168,15 @@ input:-webkit-autofill {
 }
 
 .active-recipe__button {
-  border: solid 3px #e74c3c;
+  border: solid 4px #e74c3c;
   background: transparent;
   padding: 2rem 2rem;
   margin: 2rem 0rem;
-  border-radius: 3rem;
-  font-size: 3rem;
+  border-radius: 1rem;
+  font-size: 1rem;
   text-transform: uppercase;
   font-weight: 500;
-  float: left;
+  float: middle;
 }
 
 .active-recipe__button:hover {
@@ -184,9 +184,9 @@ input:-webkit-autofill {
   background: transparent;
   padding: 2rem 2rem;
   margin: 2rem 0rem;
-  border-radius: 3rem;
-  font-size: 3rem;
+  border-radius: 1.5rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
-  font-weight: 900;
-  float: left;
+  font-weight: 600;
+  float: middle;
 }

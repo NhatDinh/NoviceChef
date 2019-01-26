@@ -72,7 +72,7 @@ class Recipe extends React.Component {
                   recipeKeyword: `${this.props.location.recipeKeyword}`
                 }}
               >
-                Back to {} recipes
+                Back to <strong>{this.props.location.recipeKeyword} </strong>recipes
               </Link>
             </button>
           </div>
