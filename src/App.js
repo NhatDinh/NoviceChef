@@ -22,6 +22,7 @@ class App extends Component {
   componentDidMount = () => {
     sessionStorage.clear();
   }
+  
   render() {
     return (
       <div className="App">

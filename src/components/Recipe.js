@@ -33,8 +33,8 @@ class Recipe extends React.Component {
     axios
       .get(eda_call)
       .then(response => {
-        console.log("eda call: ", eda_call, " - response:", response);
-        console.log("ingredients", response.data.hits[0].recipe.ingredients);
+        //console.log("eda call: ", eda_call, " - response:", response);
+        //console.log("ingredients", response.data.hits[0].recipe.ingredients);
         this.setState({
           ingredients: response.data.hits[0].recipe.ingredients
         });
@@ -45,7 +45,7 @@ class Recipe extends React.Component {
   };
 
   render() {
-    console.log("Rendered recipe", this.props);
+    //console.log("Rendered recipe", this.props);
     const recipe = this.state.activeRecipe;
     const ingredients = this.state.ingredients;
     return (
