@@ -23,7 +23,7 @@ const Footer = props => (
 					notes and marking it off of {"\n"}
 					my notes, and still manage to forget stuff. That's why I
 					decided to {"\n"}
-					build Novice Chef, an Ingredients Search and Checklist app.
+					make Novice Chef.
 				</p>
 			</div>
 			<div className="col tribute" style={divStyle}>
@@ -33,8 +33,23 @@ const Footer = props => (
 					<i className="fas fa-plug">
 						{" "}
 						ReactJS, NodeJS, a dash of Bootstrap and lots of CSS
-						tricks{" "}
+						tricks
 					</i>
+				</h5>
+				<h5>Say <i className="fas fa-hand-peace" /> @ {"  "}
+					<a href="https://twitter.com/nhat_ldinh">
+						<i className="fab fa-twitter" />
+					</a>
+					{"    "} <i className="fas fa-arrows-alt-h" />
+					{"     "}
+					<a href="https://www.linkedin.com/in/nhat-dinh/">
+						<i className="fab fa-linkedin-in" />
+					</a>
+					{"    "} <i className="fas fa-arrows-alt-h" />
+					{"     "}
+					<a href="https://github.com/NhatDinh">
+						<i className="fab fa-github-alt" />
+					</a>
 				</h5>
 			</div>
 		</div>

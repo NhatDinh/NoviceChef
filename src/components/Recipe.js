@@ -5,19 +5,21 @@ import { Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Banner from "./Banner";
+import YouTube from "react-youtube";
 
 import "./custom-css/Recipe.css";
 
-const API_KEY = "8f547e134d4f4ff24b8f4ef8261576e3";
-const APP_ID = "43d1b03e";
-const APP_KEY = "eab4de56a7d88b4443c6ea2176e85c5c";
 class Recipe extends React.Component {
   state = {
     activeRecipe: [],
-    ingredients: []
+    ingredients: [],
+    activeVideo: {}
   };
 
-  componentDidMount = () => {
+  getIngredients = () => {
+    const API_KEY = "8f547e134d4f4ff24b8f4ef8261576e3";
+    const APP_ID = "43d1b03e";
+    const APP_KEY = "eab4de56a7d88b4443c6ea2176e85c5c";
     let recipeID = this.props.location.recipeID;
     let call = `https://www.food2fork.com/api/get?key=${API_KEY}&rId=${recipeID}`;
     let recipeName = this.props.location.recipeTitle;
@@ -44,25 +46,50 @@ class Recipe extends React.Component {
       });
   };
 
+  getCookingTutorials = () => {
+    const yt_key = "AIzaSyDBgUQvcV7cCKJs5LY1eYF3E8kLQAJoIXs";
+    const maxResults = 10;
+    var queryTerm =
+      this.props.location.recipeTitle;
+    console.log("QUERY TERM:", queryTerm);
+    let youtube_call =
+      `https://www.googleapis.com/youtube/v3/search?key=${yt_key}&part=snippet,id&order=viewCount&maxResults=${maxResults}&q=${queryTerm}`;
+    axios
+      .get(youtube_call)
+      .then(response => {
+        console.log("URL:", youtube_call, "YOUTUBE VIDEOS RES: ", response);
+        this.setState({
+          activeVideo: response.data.items[0]
+        });
+        //console.log("ACTIVE: ", this.state.activeVideo.id.);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  componentDidMount = () => {
+    this.getIngredients();
+    this.getCookingTutorials();
+  };
+
   render() {
     //console.log("Rendered recipe", this.props);
     const recipe = this.state.activeRecipe;
     const ingredients = this.state.ingredients;
+    const opts = {
+      height: "500px",
+      width: "100%",
+      playerVars: {
+        autoplay: 1
+      }
+    };
     return (
       <div>
         <Header />
         <Banner />
         <div className="row recipe-container">
           <div className="col-xl">
-            {recipe !== 0 && (
-              <div className="active-recipe">
-                <img
-                  className="active-recipe__img"
-                  src={recipe.image_url}
-                  alt={recipe.title}
-                />
-              </div>
-            )}
             <button className="active-recipe__button">
               <Link
                 to={{
@@ -72,9 +99,15 @@ class Recipe extends React.Component {
                   recipeKeyword: `${this.props.location.recipeKeyword}`
                 }}
               >
-                Back to <strong>{this.props.location.recipeKeyword} </strong>recipes
+                Back to <strong>{this.props.location.recipeKeyword} </strong>
+                recipes
               </Link>
             </button>
+          <YouTube
+        videoId="AmHE1U2Lv9w"
+        opts={opts}
+        onReady={this._onReady}
+      />
           </div>
           <div className="col">
             <div className="checklist-container">
