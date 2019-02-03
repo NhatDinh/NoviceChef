@@ -13,7 +13,8 @@ class Recipe extends React.Component {
   state = {
     activeRecipe: [],
     ingredients: [],
-    activeVideo: {}
+    activeVideo: [],
+    videos: []
   };
 
   getIngredients = () => {
@@ -28,6 +29,7 @@ class Recipe extends React.Component {
       .get(call)
       .then(response => {
         this.setState({ activeRecipe: response.data.recipe });
+        console.log("this.state.activeRecipe", this.state.activeRecipe);
       })
       .catch(error => {
         console.log(error);
@@ -35,8 +37,6 @@ class Recipe extends React.Component {
     axios
       .get(eda_call)
       .then(response => {
-        //console.log("eda call: ", eda_call, " - response:", response);
-        //console.log("ingredients", response.data.hits[0].recipe.ingredients);
         this.setState({
           ingredients: response.data.hits[0].recipe.ingredients
         });
@@ -49,34 +49,36 @@ class Recipe extends React.Component {
   getCookingTutorials = () => {
     const yt_key = "AIzaSyDBgUQvcV7cCKJs5LY1eYF3E8kLQAJoIXs";
     const maxResults = 10;
-    var queryTerm =
-      this.props.location.recipeTitle;
+    var queryTerm = this.props.location.recipeTitle;
     console.log("QUERY TERM:", queryTerm);
-    let youtube_call =
-      `https://www.googleapis.com/youtube/v3/search?key=${yt_key}&part=snippet,id&order=viewCount&maxResults=${maxResults}&q=${queryTerm}`;
+    let youtube_call = `https://www.googleapis.com/youtube/v3/search?key=${yt_key}&part=snippet,id&order=viewCount&maxResults=${maxResults}&q=${queryTerm}`;
     axios
       .get(youtube_call)
       .then(response => {
         console.log("URL:", youtube_call, "YOUTUBE VIDEOS RES: ", response);
         this.setState({
+          videos: response.data.items,
           activeVideo: response.data.items[0]
         });
-        //console.log("ACTIVE: ", this.state.activeVideo.id.);
+        console.log(
+          "Recipe.js - videos: ",
+          this.state.videos,
+          " - activeVideo:",
+          this.state.activeVideo.id.videoId
+        );
       })
       .catch(error => {
         console.log(error);
       });
   };
 
-  componentDidMount = () => {
-    this.getIngredients();
-    this.getCookingTutorials();
-  };
-
   render() {
-    //console.log("Rendered recipe", this.props);
     const recipe = this.state.activeRecipe;
     const ingredients = this.state.ingredients;
+    console.log("INIT ACTIVE Recipe:", recipe, "INIT ingredients", ingredients);
+    const activeVideo = this.state.activeVideo;
+    const videos = this.state.videos;
+    console.log("INIT ACTIVE VIDEO:", activeVideo, "INIT VIDEOS", videos);
     const opts = {
       height: "500px",
       width: "100%",
@@ -103,11 +105,10 @@ class Recipe extends React.Component {
                 recipes
               </Link>
             </button>
-          <YouTube
-        videoId="AmHE1U2Lv9w"
-        opts={opts}
-        onReady={this._onReady}
-      />
+            { activeVideo !== 0 && (
+              <YouTube videoId="#" opts={opts} onReady={this._onReady} />
+            )}
+            <hr />
           </div>
           <div className="col">
             <div className="checklist-container">

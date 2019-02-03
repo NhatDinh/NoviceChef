@@ -24,7 +24,7 @@ class Recipes extends Component {
     } else {
       let recipeKeyword = this.props.location.recipeKeyword;
       console.log("recipeKeyword", recipeKeyword);
-      let call = `https://www.food2fork.com/api/search?&key=${API_KEY}&q=${recipeKeyword}&count=9`;
+      let call = `https://www.food2fork.com/api/search?&key=${API_KEY}&q=${recipeKeyword}&count=3`;
       axios
         .get(call)
         .then(response => {
