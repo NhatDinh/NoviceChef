@@ -24,9 +24,7 @@ const Footer = props => (
 					my notes, and still manage to forget stuff. That's why I
 					decided to {"\n"}
 					make Novice Chef.
-
 				</p>
-				<div id="edamam-badge" data-color="white"></div>
 			</div>
 
 			<div className="col tribute" style={divStyle}>
@@ -39,7 +37,8 @@ const Footer = props => (
 						tricks.
 					</i>
 				</h5>
-				<h5>Say <i className="fas fa-hand-peace" /> @ {"  "}
+				<h5>
+					Say <i className="fas fa-hand-peace" /> @ {"  "}
 					<a href="https://twitter.com/nhat_ldinh">
 						<i className="fab fa-twitter" />
 					</a>
@@ -53,7 +52,6 @@ const Footer = props => (
 					<a href="https://github.com/NhatDinh">
 						<i className="fab fa-github-alt" />
 					</a>
-
 				</h5>
 			</div>
 		</div>
