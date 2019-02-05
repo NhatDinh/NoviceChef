@@ -18,9 +18,9 @@ class Recipe extends React.Component {
   };
 
   getIngredients = () => {
-    const API_KEY = "8f547e134d4f4ff24b8f4ef8261576e3";
-    const APP_ID = "1f014e94";
-    const APP_KEY = "147e439924f9f09538c8b5394b52daab";
+    const API_KEY = "";
+    const APP_ID = "";
+    const APP_KEY = "";
     let recipeID = this.props.location.recipeID;
     let call = `https://www.food2fork.com/api/get?key=${API_KEY}&rId=${recipeID}`;
     let recipeName = this.props.location.recipeTitle;

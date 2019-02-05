@@ -8,7 +8,7 @@ import Header from "./Header";
 
 import "./custom-css/Recipes.css";
 
-const API_KEY = "8f547e134d4f4ff24b8f4ef8261576e3";
+const API_KEY = "";
 class Recipes extends Component {
   state = {
     recipes_list: []
